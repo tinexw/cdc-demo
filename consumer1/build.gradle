@@ -1,0 +1,24 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+sourceCompatibility = '11'
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit', module: 'junit'
+    }
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+    testImplementation 'au.com.dius:pact-jvm-consumer-junit5_2.12:3.6.13'
+    testImplementation('au.com.dius:pact-jvm-consumer-java8_2.12:3.6.13') {
+        exclude group: 'junit', module: 'junit'
+    }
+}
