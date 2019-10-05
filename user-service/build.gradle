@@ -17,5 +17,5 @@ dependencies {
         exclude group: 'junit', module: 'junit'
     }
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
-    testImplementation 'au.com.dius:pact-jvm-provider-junit5_2.12:3.6.13'
+    testImplementation 'au.com.dius:pact-jvm-provider-junit5:4.0.0'
 }
