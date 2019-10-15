@@ -34,7 +34,8 @@ public class UserServiceClientContractTest {
                 .status(200)
                 .body(LambdaDsl.newJsonBody((o) ->
                         o
-                                .numberType("id", 1)
+                                .stringType("id", "1")
+                                .numberType("newId", 1)
                                 .stringType("name", "Beth")
                 ).build())
                 .toPact();

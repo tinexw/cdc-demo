@@ -17,7 +17,9 @@ public class Consumer1UserController {
 
     @GetMapping("/users")
     public List<User> getUser() {
-        return Arrays.asList(userServiceClient.getUser(1L), userServiceClient.getUser(2L));
+        return Arrays.asList(userServiceClient.getUser(1L), userServiceClient.getUser(2L)
+                //        , userServiceClient.getUser(3L)
+        );
     }
 
 }

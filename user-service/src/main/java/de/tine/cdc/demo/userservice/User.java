@@ -2,18 +2,24 @@ package de.tine.cdc.demo.userservice;
 
 public class User {
 
-    private int id;
-    private String name;
-    private String role;
+    private final String id;
+    private final int newId;
+    private final String name;
+    private final String role;
 
-    public User(int id, String name, String role) {
+    public User(String id, int newId, String name, String role) {
         this.id = id;
+        this.newId = newId;
         this.name = name;
         this.role = role;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
+    }
+
+    public int getNewId() {
+        return newId;
     }
 
     public String getName() {
