@@ -3,7 +3,7 @@ package de.tine.cdc.demo.consumer1;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -15,9 +15,9 @@ public class Consumer1UserController {
         this.userServiceClient = userServiceClient;
     }
 
-    @GetMapping("/consumer1/users")
+    @GetMapping("/users")
     public List<User> getUser() {
-        return Collections.singletonList(userServiceClient.getUser(1L));
+        return Arrays.asList(userServiceClient.getUser(1L), userServiceClient.getUser(2L));
     }
 
 }

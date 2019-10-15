@@ -5,7 +5,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    public User findUser(Long userId) {
-        return new User(userId, "Beth");
+    public User findUser(int userId) {
+        switch (userId) {
+            case 1:
+                return new User(userId, "Beth", "ADMIN");
+            case 2:
+                return new User(userId, "Matt", "USER");
+            default:
+                throw new NotFoundException(String.format("User %d does not exist.", userId));
+        }
+
     }
 }
