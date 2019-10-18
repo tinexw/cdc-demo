@@ -15,7 +15,7 @@ public class UserServiceClient {
         this.restTemplate = new RestTemplateBuilder().rootUri(baseUrl).build();
     }
 
-    public User getUser(Long id) {
+    public User getUser(String id) {
         final User user = restTemplate.getForObject("/users/" + id, User.class);
         Assert.hasText(user.getName(), "Name is blank.");
         return user;

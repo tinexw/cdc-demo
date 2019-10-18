@@ -12,14 +12,17 @@ test {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'junit', module: 'junit'
+        exclude group: 'junit'
+        exclude group: 'org.junit.vintage'
     }
 
     testImplementation 'au.com.dius:pact-jvm-consumer-junit5:4.0.0'
     testImplementation('au.com.dius:pact-jvm-consumer-java8:4.0.0') {
-        exclude group: 'junit', module: 'junit'
+        exclude group: 'junit'
     }
     testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
 }

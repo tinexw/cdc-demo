@@ -1,7 +1,6 @@
 package de.tine.cdc.demo.userservice;
 
 import au.com.dius.pact.provider.junit.Provider;
-import au.com.dius.pact.provider.junit.State;
 import au.com.dius.pact.provider.junit.loader.PactFolder;
 import au.com.dius.pact.provider.junit5.HttpTestTarget;
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
@@ -15,7 +14,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 @Provider("user-service")
 @PactFolder("pacts")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ContractTest {
+public class ContractTestFinal {
 
     @LocalServerPort
     private int port;
@@ -31,9 +30,5 @@ public class ContractTest {
         context.verifyInteraction();
     }
 
-    @State("User 1 exists")
-    public void user1Exists() {
-        // nothing to do, real service is used
-    }
 }
 

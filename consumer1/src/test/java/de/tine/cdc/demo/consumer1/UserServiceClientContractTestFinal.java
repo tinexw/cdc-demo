@@ -18,31 +18,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
         properties = "user-service.base-url:http://localhost:8081",
         classes = UserServiceClient.class)
-public class UserServiceClientContractTest {
+public class UserServiceClientContractTestFinal {
 
     @Autowired
     private UserServiceClient userServiceClient;
 
     @Pact(consumer = "consumer1")
-    public RequestResponsePact createPact(PactDslWithProvider builder) {
+    public RequestResponsePact createContract(PactDslWithProvider builder) {
         return builder
-                .given("User 1 exists")
                 .uponReceiving("get user interaction")
                 .method("GET")
                 .path("/users/1")
                 .willRespondWith()
                 .status(200)
-                .body(LambdaDsl.newJsonBody((o) ->
-                        o
-                                .numberType("id", 1)
+                .body(LambdaDsl.newJsonBody(root ->
+                        root
+                                .stringType("id", "1")
                                 .stringType("name", "Beth")
+                                .numberType("externalId", 1L)
                 ).build())
                 .toPact();
     }
 
     @Test
     public void userExists() {
-        User user = userServiceClient.getUser(1L);
+        User user = userServiceClient.getUser("1");
 
         assertThat(user.getName()).isEqualTo("Beth");
     }
