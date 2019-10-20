@@ -18,6 +18,8 @@ public class UserServiceClient {
     public User getUser(String id) {
         final User user = restTemplate.getForObject("/users/" + id, User.class);
         Assert.hasText(user.getName(), "Name is blank.");
+        Assert.hasText(user.getId(), "Id is blank.");
+        Assert.notNull(user.getExternalId(), "External id is null.");
         return user;
     }
 
