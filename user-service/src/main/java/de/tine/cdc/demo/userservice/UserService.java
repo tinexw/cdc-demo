@@ -29,7 +29,7 @@ public class UserService {
 //                        .role("USER")
 //                        .build();
             default:
-                throw new NotFoundException(String.format("User %d does not exist.", userId));
+                throw new NotFoundException(String.format("User %s does not exist.", userId));
         }
 
     }
