@@ -17,6 +17,7 @@ public class UserServiceIT {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
-                .jsonPath("$.name").isEqualTo("Beth");
+                .jsonPath("$.name").isEqualTo("Beth")
+                .jsonPath("$.id").isEqualTo(1L);
     }
 }
