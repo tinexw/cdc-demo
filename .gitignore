@@ -9,3 +9,4 @@ build/
 out/
 
 /user-service/pacts/
+/consumer1/src/test/java/de/tine/cdc/demo/consumer1/UserServiceClientTest.java
