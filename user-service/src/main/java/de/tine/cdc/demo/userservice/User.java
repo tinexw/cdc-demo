@@ -9,7 +9,7 @@ import lombok.Value;
 public class User {
 
     private String id;
-    private int externalId;
+    private String externalId;
     private String name;
     private String role;
 }
