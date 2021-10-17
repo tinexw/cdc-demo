@@ -1,8 +1,10 @@
 package de.tine.cdc.demo.consumer1;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+@Disabled
 public class UserServiceIT {
 
     @Test
