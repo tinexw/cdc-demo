@@ -21,8 +21,5 @@ dependencies {
     }
 
     testImplementation 'au.com.dius.pact.consumer:junit5:4.2.14'
-    testImplementation('au.com.dius.pact.consumer:java8:4.1.28') {
-        exclude group: 'junit'
-    }
     testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
 }

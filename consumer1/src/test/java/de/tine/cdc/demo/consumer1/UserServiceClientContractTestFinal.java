@@ -1,11 +1,11 @@
 package de.tine.cdc.demo.consumer1;
 
+import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
 import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
-import io.pactfoundation.consumer.dsl.LambdaDsl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +31,11 @@ public class UserServiceClientContractTestFinal {
                 .path("/users/1")
                 .willRespondWith()
                 .status(200)
-                .body(LambdaDsl.newJsonBody(root ->
-                        root
+                .body(new PactDslJsonBody()
                                 .stringType("id", "1")
                                 .stringType("name", "Beth")
                                 .numberType("externalId", 1L)
-                ).build())
+                )
                 .toPact();
     }
 

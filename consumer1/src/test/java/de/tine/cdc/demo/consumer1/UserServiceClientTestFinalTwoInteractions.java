@@ -1,11 +1,11 @@
 package de.tine.cdc.demo.consumer1;
 
+import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
 import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
-import io.pactfoundation.consumer.dsl.LambdaDsl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -25,11 +25,9 @@ class UserServiceClientTestFinalTwoInteractions {
                 .path("/users/1")
                 .willRespondWith()
                 .status(200)
-                .body(LambdaDsl.newJsonBody(root ->
-                        root.stringType("name", "Beth")
+                .body(new PactDslJsonBody().stringType("name", "Beth")
                                 .stringType("id", "1")
                                 .numberType("externalId", 1))
-                        .build())
                 .toPact();
     }
 

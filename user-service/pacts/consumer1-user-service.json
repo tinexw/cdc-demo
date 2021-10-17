@@ -1,7 +1,4 @@
 {
-  "provider": {
-    "name": "user-service"
-  },
   "consumer": {
     "name": "consumer1"
   },
@@ -13,63 +10,76 @@
         "path": "/users/1"
       },
       "response": {
-        "status": 200,
+        "body": {
+          "externalId": 1,
+          "id": "1",
+          "name": "Beth"
+        },
         "headers": {
           "Content-Type": "application/json; charset=UTF-8"
         },
-        "body": {
-          "name": "Beth",
-          "externalId": 1,
-          "id": "1"
-        },
         "matchingRules": {
           "body": {
-            "$.id": {
-              "matchers": [
-                {
-                  "match": "type"
-                }
-              ],
-              "combine": "AND"
-            },
-            "$.name": {
-              "matchers": [
-                {
-                  "match": "type"
-                }
-              ],
-              "combine": "AND"
-            },
             "$.externalId": {
+              "combine": "AND",
               "matchers": [
                 {
                   "match": "number"
                 }
-              ],
-              "combine": "AND"
+              ]
+            },
+            "$.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
             }
           },
           "header": {
             "Content-Type": {
+              "combine": "AND",
               "matchers": [
                 {
                   "match": "regex",
                   "regex": "application/json(;\\s?charset=[\\w\\-]+)?"
                 }
-              ],
-              "combine": "AND"
+              ]
             }
           }
-        }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "get user interaction - not found",
+      "request": {
+        "method": "GET",
+        "path": "/users/unknown"
+      },
+      "response": {
+        "status": 404
       }
     }
   ],
   "metadata": {
+    "pact-jvm": {
+      "version": "4.2.14"
+    },
     "pactSpecification": {
       "version": "3.0.0"
-    },
-    "pact-jvm": {
-      "version": "4.1.7"
     }
+  },
+  "provider": {
+    "name": "user-service"
   }
 }
