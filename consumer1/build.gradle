@@ -20,7 +20,7 @@ dependencies {
         exclude group: 'org.junit.vintage'
     }
 
-    testImplementation 'au.com.dius.pact.consumer:junit5:4.1.7'
+    testImplementation 'au.com.dius.pact.consumer:junit5:4.2.14'
     testImplementation('au.com.dius.pact.consumer:java8:4.1.28') {
         exclude group: 'junit'
     }
