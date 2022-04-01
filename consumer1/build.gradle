@@ -20,6 +20,6 @@ dependencies {
         exclude group: 'org.junit.vintage'
     }
 
-    testImplementation 'au.com.dius.pact.consumer:junit5:4.2.14'
+    testImplementation 'au.com.dius.pact.consumer:junit5:4.3.6'
     testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
 }
