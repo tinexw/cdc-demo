@@ -19,5 +19,5 @@ dependencies {
         exclude group: 'junit'
         exclude group: 'org.junit.vintage'
     }
-    testImplementation 'au.com.dius.pact.provider:junit5:4.2.14'
+    testImplementation 'au.com.dius.pact.provider:junit5:4.4.4'
 }
